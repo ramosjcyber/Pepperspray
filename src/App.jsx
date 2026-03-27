@@ -25,13 +25,19 @@ function BookCard({ book, onAddToCart }) { return ( <motion.div whileHover={{ y:
 
 ); }
 
-export default function BookSellingWebsite() { const [selectedGenre, setSelectedGenre] = useState("All"); const [query, setQuery] = useState(""); const [cart, setCart] = useState([]); const [cartOpen, setCartOpen] = useState(false); const [mobileOpen, setMobileOpen] = useState(false);
+export default function BookSellingWebsite() { const [selectedGenre, setSelectedGenre] = useState("All"); const [query, setQuery] = useState(""); const [cart, setCart] = useState([]); const [cartOpen, setCartOpen] = useState(false); const [checkoutOpen, setCheckoutOpen] = useState(false); const [mobileOpen, setMobileOpen] = useState(false);
 
 const filteredBooks = useMemo(() => { return books.filter((book) => { const matchesGenre = selectedGenre === "All" || book.genre === selectedGenre; const matchesQuery = [book.title, book.author, book.genre] .join(" ") .toLowerCase() .includes(query.toLowerCase()); return matchesGenre && matchesQuery; }); }, [selectedGenre, query]);
 
 const addToCart = (book) => { setCart((prev) => { const found = prev.find((item) => item.id === book.id); if (found) { return prev.map((item) => (item.id === book.id ? { ...item, qty: item.qty + 1 } : item)); } return [...prev, { ...book, qty: 1 }]; }); setCartOpen(true); };
 
 const updateQty = (id, delta) => { setCart((prev) => prev .map((item) => (item.id === id ? { ...item, qty: item.qty + delta } : item)) .filter((item) => item.qty > 0) ); };
+
+const openCheckout = () => { if (cart.length === 0) return; setCheckoutOpen(true); };
+
+const startCashAppCheckout = () => { window.location.href = "/checkout/cashapp"; };
+
+const startAmazonCheckout = () => { window.location.href = "/checkout/amazon"; };
 
 const cartCount = cart.reduce((sum, item) => sum + item.qty, 0); const cartTotal = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
 
@@ -302,7 +308,36 @@ return ( <div className="min-h-screen bg-[#f7f5f1] text-zinc-900"> <header class
               <span>Total</span>
               <span>${cartTotal.toFixed(2)}</span>
             </div>
-            <Button className="w-full rounded-2xl bg-zinc-900 py-6 text-white hover:bg-zinc-800">Proceed to Checkout</Button>
+            <Button
+              onClick={openCheckout}
+              className="w-full rounded-2xl bg-zinc-900 py-6 text-white hover:bg-zinc-800"
+            >
+              Proceed to Checkout
+            </Button>
+            {checkoutOpen && (
+              <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-4 space-y-3">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">Choose payment method</p>
+                  <h5 className="mt-1 text-lg font-bold text-zinc-900">Fast, premium checkout</h5>
+                  <p className="mt-1 text-sm text-zinc-600">Use Cash App Pay or Amazon Pay for your order.</p>
+                </div>
+
+                <Button
+                  onClick={startCashAppCheckout}
+                  className="w-full rounded-2xl bg-zinc-900 py-6 text-white hover:bg-zinc-800"
+                >
+                  Pay with Cash App
+                </Button>
+
+                <Button
+                  variant="outline"
+                  onClick={startAmazonCheckout}
+                  className="w-full rounded-2xl bg-white py-6"
+                >
+                  Pay with Amazon Pay
+                </Button>
+              </div>
+            )}
             <Button variant="outline" onClick={() => setCartOpen(false)} className="w-full rounded-2xl bg-white">Continue Shopping</Button>
           </div>
         </motion.aside>
