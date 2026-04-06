@@ -367,7 +367,7 @@ function CartDrawer({ cart, onClose, onChangeQty, onRemove, onCheckout }) {
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
               }}
             >
-              Submit Request →
+              Submit Order →
             </button>
             <p style={{ fontSize: 11, color: 'var(--text-muted)', textAlign: 'center', marginTop: 10 }}>
               🔒 Secure checkout · Research use only
