@@ -244,7 +244,7 @@ function ProductCard({ product, cart, onAdd }) {
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
           }}
         >
-          {added ? '✓ Added!' : inCart ? '+ Add more' : 'Add to request'}
+          {added ? '✓ Added!' : inCart ? '+ Add more' : 'Add to Cart'}
         </button>
       </div>
     </div>
