@@ -296,7 +296,7 @@ function CartDrawer({ cart, onClose, onChangeQty, onRemove, onCheckout }) {
           padding: '8px 20px 14px', borderBottom: '1px solid var(--border)',
         }}>
           <div>
-            <p style={{ fontSize: 17, fontWeight: 700, color: 'var(--navy)' }}>Request List</p>
+            <p style={{ fontSize: 17, fontWeight: 700, color: 'var(--navy)' }}>My Cart</p>
             <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>{items.length} compound{items.length !== 1 ? 's' : ''} selected</p>
           </div>
           <button onClick={onClose} style={{
