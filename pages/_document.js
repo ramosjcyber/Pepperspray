@@ -5,9 +5,9 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta charSet="utf-8" />
-        <meta name="description" content="Veyra-Life Advanced Research — Premium research compounds" />
+        <meta name="description" content="Veyra-Life — Premium research compounds" />
         <meta name="robots" content="noindex,nofollow" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/veyralogo.png" />
       </Head>
       <body>
         <Main />
