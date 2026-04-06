@@ -509,7 +509,7 @@ export default function CatalogPage() {
               }}
             >
               <CartIcon />
-              View Request List
+              View Cart
               <span style={{
                 background: 'var(--teal)', borderRadius: 20, padding: '2px 9px',
                 fontSize: 12, fontWeight: 700,
