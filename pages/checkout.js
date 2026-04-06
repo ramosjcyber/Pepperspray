@@ -103,7 +103,7 @@ function CartStep({ selections, setSelections, onNext }) {
 
   return (
     <div className="panel">
-      <p className="panel-title">Request List</p>
+      <p className="panel-title">My List</p>
       <p className="panel-sub">Review your research compounds</p>
 
       <div className="disclaimer">
@@ -140,7 +140,7 @@ function CartStep({ selections, setSelections, onNext }) {
 
       {items.length === 0 && (
         <div style={{ textAlign: 'center', padding: '30px 0', color: 'var(--text-muted)', fontSize: 14 }}>
-          No items in your request list.
+          No items in your Cart.
         </div>
       )}
 
@@ -508,7 +508,7 @@ function ConfirmStep({ orderId, method, onReset }) {
         ))}
       </div>
 
-      <button className="btn-primary" onClick={onReset}>← Start New Request</button>
+      <button className="btn-primary" onClick={onReset}>← Start New Order</button>
       <div className="trust-row">
         <span className="trust-item">🔒 Secure & Private</span>
         <span className="trust-item">🎉 Thank you for choosing Veyra-Life</span>
