@@ -85,10 +85,10 @@ function Hero() {
         Research Inventory
       </h1>
       <p style={{ fontSize: 13, color: '#9fb8cc', lineHeight: 1.6, marginBottom: 20 }}>
-        Premium research compounds with structured lot references and full CoA documentation. For in-vitro research use only.
+        Premium research compounds with structured lot references and full COA documentation. For in-vitro research use only.
       </p>
       <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-        {['CoA Verified', 'Discreet Shipping', '24hr Processing', 'Secure Checkout'].map(tag => (
+        {['COA Verified', 'Discreet Shipping', '24hr Processing', 'Secure Checkout'].map(tag => (
           <span key={tag} style={{
             background: 'rgba(29,158,117,0.15)', border: '1px solid rgba(29,158,117,0.4)',
             borderRadius: 20, padding: '4px 11px', fontSize: 11,
